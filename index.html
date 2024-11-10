@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Techbusters">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <title>Flood Predictor</title>
+  </head>
+  <body>
+    
+    <div class="s002">
+      <form name="myForm" action="/grantaccess" method="post" onsubmit="return validateForm()">
+        <fieldset>
+          <legend>PREDICT YOUR FLOOD</legend>
+        </fieldset>
+        <div class="inner-form">
+          <div class="input-field first-wrap">
+            <div class="icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+              </svg>
+            </div>
+            <input id="search" type="text" placeholder="Enter city" name="location" value="{{ request.form.location }}" required />
+          </div>
+
+          <!-- Email input field below city input -->
+          <div class="input-field second-wrap">
+            <div class="icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+              </svg>
+            </div>
+            <input id="email" type="email" placeholder="Enter your email" name="email" value="{{ request.form.email }}" required />
+          </div>
+
+          <!-- Hidden input to hold the current date -->
+          <input type="hidden" id="currentDate" name="date" value="{{ request.form.date }}">
+          
+          <div class="input-field fifth-wrap">
+            <button class="btn-search" type="submit">SEARCH</button>
+          </div>
+        </div>
+        <fieldset>
+          <h3 id="conditions">Please enter a city in India !</h3>
+        </fieldset>
+      </form>
+    </div>
+    
+    <script>
+      // JavaScript to set the current date as default in the hidden input
+      document.addEventListener("DOMContentLoaded", function() {
+          const dateInput = document.getElementById('currentDate');
+          const today = new Date();
+          const formattedDate = today.toISOString().split('T')[0]; // Format as 'YYYY-MM-DD'
+          dateInput.value = formattedDate;
+      });
+    </script>
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='choices.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='flatpickr.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='main5.js') }}"></script>
+  </body>
+</html>

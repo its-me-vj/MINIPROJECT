@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium Risk - Flood Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #fff3e6;
+            color: #2c3e50;
+        }
+        .container {
+            margin-top: 100px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .weather-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Medium Risk of Flood</h1>
+        <p>There is a moderate risk of flooding in your area. Please take precautions!</p>
+
+        <div class="weather-card">
+            <h2>Current Weather</h2>
+            <p><strong>Temperature:</strong> {{ temp }} °C</p>
+            <p><strong>Condition:</strong> {{ condition }}</p>
+        </div>
+
+        <a href="/" class="btn btn-warning btn-lg">Go Back</a>
+    </div>
+</body>
+</html>
